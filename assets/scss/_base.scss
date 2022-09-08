@@ -1,0 +1,68 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  border: none;
+}
+
+body {
+  width: 100%;
+  height: auto;
+}
+
+body.dark-mode {
+  .products {
+    background-color: $bgColorDark;
+  }
+
+  .search {
+    background: $navbarColorDark;
+    color: $colorDark;
+    input {
+      color: $textColorDark;
+      background: $navbarColorDark;
+    }
+    .likeIcon {
+      color: $colorDark !important;
+    }
+  }
+
+  .likeCarts {
+    background: $bgColorDark;
+  }
+
+  .notFund {
+    color: $textColorDark;
+  }
+
+  .cardProduct {
+    background: $productColorDark;
+    color: $textColorDark;
+  }
+}
+
+@mixin glass($width, $height, $radius, $fontSize) {
+  width: $width;
+  height: $height;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: $fontSize;
+  background: rgba(229, 229, 229, 0.5);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: $radius;
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  -o-border-radius: $radius;
+}
+
+@mixin display($flex, $align, $justify) {
+  display: $flex;
+  align-items: $align;
+  justify-content: $justify;
+}
