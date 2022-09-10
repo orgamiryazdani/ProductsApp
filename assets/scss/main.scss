@@ -48,6 +48,27 @@
       .likeIcon {
         color: $color;
       }
+      div a {
+        position: relative;
+        display: flex;
+        text-decoration: none;
+        p {
+          position: absolute;
+          top: -9px;
+          left: 15px;
+          @include display(flex,center,center);
+          width: 18px;
+          height: 18px;
+          background: $bgColorDark;
+          color: $textColorDark;
+          font-size: 12px;
+          border-radius: 100%;
+          -webkit-border-radius: 100%;
+          -moz-border-radius: 100%;
+          -ms-border-radius: 100%;
+          -o-border-radius: 100%;
+}
+      }
     }
   }
 }

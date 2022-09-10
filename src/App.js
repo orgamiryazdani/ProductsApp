@@ -12,7 +12,7 @@ const App = () => {
       <Provider store={store}>
         <Routes>
           <Route path="/" element={<ProductsCard />} />
-          <Route path="/LikeCard" element={<LikeCard />} />
+          <Route path="/Like-card" element={<LikeCard />} />
           <Route path="*" element={<NotFund />} />
         </Routes>
       </Provider>

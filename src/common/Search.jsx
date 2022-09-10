@@ -4,7 +4,7 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { FiSearch } from "react-icons/fi";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { GiBarbedSun } from "react-icons/gi";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { searchItem } from '../components/ProductsData/ProductsSlice';
 import { useState } from 'react';
 
@@ -13,6 +13,8 @@ const Search = () => {
     const inputRef = useRef('')
     const dispatch = useDispatch();
     const [theme, setTheme] = useState(true);
+
+    const { LikeProduct } = useSelector((state) => state.like);
 
     const changeHandler = () => {
         dispatch(searchItem(inputRef.current.value));
@@ -47,7 +49,8 @@ const Search = () => {
             <div className='navFeature'>
                 <div className='icons'>
                     <div>
-                        <Link to="LikeCard">
+                        <Link to="Like-card">
+                            {LikeProduct.length > 0 ? <p>{LikeProduct.length}</p> : null}
                             <AiOutlineHeart className='likeIcon' />
                         </Link>
                     </div>

@@ -281,6 +281,29 @@ body.dark-mode .cardProduct {
 .search .navFeature .icons .likeIcon {
   color: #000;
 }
+.search .navFeature .icons div a {
+  position: relative;
+  display: flex;
+  text-decoration: none;
+}
+.search .navFeature .icons div a p {
+  position: absolute;
+  top: -9px;
+  left: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  background: #121418;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 100%;
+  -webkit-border-radius: 100%;
+  -moz-border-radius: 100%;
+  -ms-border-radius: 100%;
+  -o-border-radius: 100%;
+}
 
 .product {
   display: grid;
