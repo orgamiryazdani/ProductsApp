@@ -72,7 +72,58 @@
   }
 }
 
-
+menu {
+  overflow: hidden;
+  font-size: 20px;
+  margin-top: 25px;
+  grid-column: 1/1;
+  @include display(flex, center, space-evenly);
+  flex-direction: column;
+  height: 80vh;
+  background-color: $navbarColor;
+  border-radius: 0 10px 10px 0;
+  -webkit-border-radius: 0 10px 10px 0;
+  -moz-border-radius: 0 10px 10px 0;
+  -ms-border-radius: 0 10px 10px 0;
+  -o-border-radius: 0 10px 10px 0;
+  .itemMenu {
+    cursor: pointer;
+    @include display(flex, center, center);
+    width: 40px;
+    height: 40px;
+    box-shadow: 0px 0px 25px #eaeaea;
+    background: $navbarColor;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+  a {
+    color: $textColor;
+    .likeIconMenu {
+      position: relative;
+      display: flex;
+      text-decoration: none;
+      p {
+        position: absolute;
+        top: -7px;
+        left: 14px;
+        @include display(flex, center, center);
+        width: 15px;
+        height: 15px;
+        background: $bgColorDark;
+        color: $textColorDark;
+        font-size: 10px;
+        border-radius: 100%;
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        -ms-border-radius: 100%;
+        -o-border-radius: 100%;
+      }
+    }
+  }
+}
 
 .load {
   position: fixed;

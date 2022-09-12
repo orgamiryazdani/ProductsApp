@@ -1,5 +1,5 @@
 import http from "./htpService";
 
-export function getData(value){
+export function getCategory(value){
     return http.get(value);
 }

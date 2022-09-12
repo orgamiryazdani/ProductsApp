@@ -49,10 +49,7 @@ const Search = () => {
             <div className='navFeature'>
                 <div className='icons'>
                     <div>
-                        <Link to="Like-card">
-                            {LikeProduct.length > 0 ? <p>{LikeProduct.length}</p> : null}
-                            <AiOutlineHeart className='likeIcon' />
-                        </Link>
+                       <img src="" alt="" />
                     </div>
                     <div className='theme' onClick={handleModeChange}>
                         {theme ? <GiBarbedSun /> : <BsFillMoonStarsFill />}

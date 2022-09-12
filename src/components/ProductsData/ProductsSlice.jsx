@@ -3,7 +3,7 @@ import { getData } from "../../Services/getData";
 
 export const getAsyncProducts = createAsyncThunk("products/getAsyncProducts", async (_, { rejectWithValue }) => {
     try {
-        const response = await getData();
+        const response = await getData("products");
         return response.data.slice(0, 14);
     } catch (error) {
         return rejectWithValue([], error)

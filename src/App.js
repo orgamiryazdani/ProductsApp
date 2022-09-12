@@ -5,6 +5,7 @@ import { store } from "./components/ProductsData/Store";
 import NotFund from "./components/NotFund/NotFund";
 import ProductsCard from "./common/ProductsCard";
 import LikeCard from "./common/LikeCard";
+import Category from "./common/Category";
 
 const App = () => {
   return (
@@ -12,7 +13,8 @@ const App = () => {
       <Provider store={store}>
         <Routes>
           <Route path="/" element={<ProductsCard />} />
-          <Route path="/Like-card" element={<LikeCard />} />
+          <Route path="/like-card" element={<LikeCard />} />
+          <Route path="/category" element={<Category />} />
           <Route path="*" element={<NotFund />} />
         </Routes>
       </Provider>

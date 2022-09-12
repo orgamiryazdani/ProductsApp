@@ -41,6 +41,34 @@ body.dark-mode {
     background: $productColorDark;
     color: $textColorDark;
   }
+  .search {
+    .navFeature {
+      div a {
+        p {
+          background: $bgColor;
+          color: $textColor;
+        }
+      }
+    }
+  }
+  menu {
+    background-color: $productColorDark;
+    .itemMenu {
+      box-shadow: 0px 0px;
+    }
+    .itemMenu {
+      background: rgb(69, 69, 69);
+    }
+    a {
+      color: $textColorDark;
+      .likeIconMenu {
+        p {
+          background: $bgColor;
+          color: $textColor;
+        }
+      }
+    }
+  }
 }
 
 @mixin glass($width, $height, $radius, $fontSize) {
