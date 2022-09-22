@@ -20,6 +20,9 @@ a {
 body.dark-mode .products {
   background-color: #121418;
 }
+body.dark-mode .product {
+  background: #121418;
+}
 body.dark-mode .product a {
   color: #fff;
 }
@@ -694,6 +697,13 @@ menu a .likeIconMenu p {
   .product,
 .category {
     grid-column: 1/3;
+  }
+  .category {
+    padding-bottom: 5vh;
+    height: 100%;
+  }
+  .product {
+    padding-bottom: 10vh;
   }
   .selectFilter {
     display: none !important;

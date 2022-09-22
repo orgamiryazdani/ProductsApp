@@ -32,7 +32,7 @@ const ProductsCard = () => {
     }
 
     if (error) {
-        return <NotFund />
+        return <NotFund error={error} />
     }
 
     return (

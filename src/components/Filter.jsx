@@ -14,7 +14,6 @@ const sortOptions = [
 const Filter = () => {
 
     const { pathname } = useLocation();
-    console.log(pathname);
     const { categories } = useSelector((state) => state.categories);
     const [filterIcon, setFilterIcon] = useState(false);
 

@@ -12,14 +12,14 @@ const Category = () => {
     useEffect(() => {
         dispatch(getAsyncCategories("/categories"));
     }, []);
-    
+
     const dispatch = useDispatch();
     if (loading) {
         return <Loading />
     }
 
     if (error) {
-        return <NotFund />
+        return <NotFund error={error} />
     }
 
     return (

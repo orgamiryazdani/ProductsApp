@@ -34,7 +34,7 @@ const ProductsCategory = () => {
     }
 
     if (error) {
-        return <NotFund />
+        return <NotFund error={error}/>
     }
 
     return (
