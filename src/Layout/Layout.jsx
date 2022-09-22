@@ -1,14 +1,17 @@
 import React from 'react';
-import Menu from '../common/Menu';
-import Search from '../common/Search';
+import { useDispatch } from 'react-redux';
+import Filter from '../components/Filter';
+import Menu from '../components/Menu';
+import Search from '../components/Search';
 
 const Layout = ({ children }) => {
     return (
-        <div className="products">
+        <>
             <Search />
+            <Filter />
             <Menu />
             {children}
-        </div>
+        </>
     );
 };
 

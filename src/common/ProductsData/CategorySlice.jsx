@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import _ from "lodash";
 import { getCategory } from "../../Services/getCategory";
 
-export const getAsyncCategories = createAsyncThunk("categories/getAsyncCategories", async (_, { rejectWithValue }) => {
+export const getAsyncCategories = createAsyncThunk("categories/getAsyncCategories", async (data, { rejectWithValue }) => {
     try {
-        const response = await getCategory("categories");
-        return response.data;
+        const response = await getCategory(data);
+        return response.data.slice(0, 5);
     } catch (error) {
         return rejectWithValue([], error)
     }
@@ -34,13 +35,14 @@ const CategoriesSlice = createSlice({
         },
     },
     reducers: {
-        searchItem: (state, action) => {
+        searchCategory: (state, action) => {
             state.categories = state.search.filter(item => item.name.toLowerCase().includes(action.payload.toLowerCase()))
         },
-    },
-}
+
+    }
+},
 )
 
-export const { searchItem } = CategoriesSlice.actions;
+export const { searchCategory } = CategoriesSlice.actions;
 export default CategoriesSlice.reducer;
 

@@ -12,9 +12,20 @@ body {
   height: auto;
 }
 
+a {
+  color: #000;
+  text-decoration: none;
+}
+
 body.dark-mode {
   .products {
     background-color: $bgColorDark;
+  }
+
+  .product {
+    a {
+      color: $textColorDark;
+    }
   }
 
   .search {
@@ -45,8 +56,7 @@ body.dark-mode {
     .navFeature {
       div a {
         p {
-          background: $bgColor;
-          color: $textColor;
+          color: $textColorDark;
         }
       }
     }
@@ -68,6 +78,56 @@ body.dark-mode {
         }
       }
     }
+  }
+  .Information {
+    color: $textColorDark;
+  }
+
+  .login {
+    form {
+      .btnSgn {
+        .btn {
+          color: $textColorDark;
+        }
+        p {
+          color: $textColorDark !important;
+        }
+      }
+    }
+    input {
+      color: $textColorDark;
+      border-bottom: 2px solid $colorDark;
+    }
+  }
+  .profile {
+    color: $textColorDark;
+    p {
+      border-bottom: 1px solid $colorDark;
+    }
+    a {
+      color: $textColorDark;
+    }
+  }
+  .logOut {
+    color: $textColorDark;
+  }
+  .error {
+    color: $textColorDark;
+  }
+  .notLikeItem {
+    color: $textColorDark;
+  }
+  .category {
+    background: $bgColorDark;
+  }
+  .selectFilterMobile {
+  background: $navbarColorDark;
+  }
+  .iconFilter{
+    color: $textColorDark;
+  }
+  label {
+    color: $textColorDark;
   }
 }
 

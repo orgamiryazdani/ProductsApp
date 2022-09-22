@@ -1,0 +1,30 @@
+import React from 'react';
+import { useSelector } from "react-redux";
+import { NavLink } from 'react-router-dom';
+import Layout from '../Layout/Layout';
+import image from "../../assets/img/images.jpg";
+import { MdAdminPanelSettings } from "react-icons/md";
+
+const Profile = () => {
+    const { dataUser, user } = useSelector((state) => state.user);
+
+    return (
+        <Layout>
+            <div className='profile'>
+                {user ? <div>
+                    <div className='imgUser'>
+                        <img src={image} alt="image" />
+                        <MdAdminPanelSettings className='isAdmin' style={dataUser.isAdmin === true ? { color: "#a4a402" } : { color: "#7e7e7e" }} />
+                    </div>
+                    <div className='aboutUser'>
+                        <p>name : {dataUser.name}</p>
+                        <p>email : {dataUser.email}</p>
+                        <p>phone : {dataUser.phoneNumber}</p>
+                    </div>
+                </div> : <NavLink to="/login"><p>PLEASE LOGIN !</p></NavLink>}
+            </div>
+        </Layout>
+    );
+}
+
+export default Profile;

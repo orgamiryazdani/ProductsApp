@@ -1,23 +1,30 @@
 import React, { useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { AiOutlineHeart } from "react-icons/ai";
 import { FiSearch } from "react-icons/fi";
 import { BsFillMoonStarsFill } from "react-icons/bs";
 import { GiBarbedSun } from "react-icons/gi";
 import { useDispatch, useSelector } from "react-redux";
-import { searchItem } from '../components/ProductsData/ProductsSlice';
+import { searchItem, setValueSearch } from '../common/ProductsData/ProductsSlice';
 import { useState } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import { searchCategory } from '../common/ProductsData/CategorySlice';
+import { searchItemLike } from '../common/ProductsData/LikeSlice';
+import image from "../../assets/img/images.jpg";
 
 const Search = () => {
 
-    const inputRef = useRef('')
+    const { pathname } = useLocation();
+    const inputRef = useRef('');
     const dispatch = useDispatch();
     const [theme, setTheme] = useState(true);
-
-    const { LikeProduct } = useSelector((state) => state.like);
+    const { user } = useSelector((state) => state.user);
 
     const changeHandler = () => {
-        dispatch(searchItem(inputRef.current.value));
+        dispatch(setValueSearch(inputRef.current.value));
+        {
+            pathname === "/category" ? dispatch(searchCategory(inputRef.current.value)) :
+            pathname === "/like-card" ? dispatch(searchItemLike(inputRef.current.value)) :
+            dispatch(searchItem(inputRef.current.value));
+        }
     };
 
     const handleModeChange = () => {
@@ -48,12 +55,14 @@ const Search = () => {
 
             <div className='navFeature'>
                 <div className='icons'>
-                    <div>
-                       <img src="" alt="" />
-                    </div>
                     <div className='theme' onClick={handleModeChange}>
                         {theme ? <GiBarbedSun /> : <BsFillMoonStarsFill />}
                     </div>
+                    <NavLink className="signUp" to={user === true ? "/profile" : "/login"}>
+                        <div>
+                            {user === true ? <img src={image} alt="" /> : <p>Log in</p>}
+                        </div>
+                    </NavLink>
                 </div>
             </div>
         </div>

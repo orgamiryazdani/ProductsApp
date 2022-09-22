@@ -12,9 +12,7 @@
 
   .imageCartProduct {
     position: relative;
-    @include display(flex, center, center);
     overflow: hidden;
-    flex-direction: column;
     width: 100%;
     height: 85%;
     .Carousel {
@@ -36,27 +34,6 @@
     }
   }
 
-  .topFeature {
-    position: absolute;
-    @include display(flex, flex-start, space-between);
-    padding: 20px;
-    width: 100%;
-    top: 0;
-    height: auto;
-    .star {
-      @include glass(70px, 40px, 50px, 17px);
-      @include display(flex, center, center);
-      p {
-        font-size: 14px;
-        margin-left: 3px;
-      }
-    }
-    .like {
-      cursor: pointer;
-      @include glass(40px, 40px, 100%, 20px);
-    }
-  }
-
   .titlePrice {
     width: 100%;
     height: 15%;
@@ -66,17 +43,37 @@
 
     span {
       font-weight: normal;
-      color: #c7c7c7;
+      color: $textColorTotal;
       font-size: 13px;
     }
   }
 }
 
+.star,
+.like {
+  z-index: 100000;
+  top: 20px;
+  right: 20px;
+  position: absolute;
+  @include glass(70px, 40px, 50px, 17px);
+  @include display(flex, center, center);
+  p {
+    font-size: 14px;
+    margin-left: 3px;
+  }
+}
+.like {
+  cursor: pointer;
+  left: 20px;
+  @include glass(40px, 40px, 100%, 20px);
+}
+
 menu {
+  position: fixed;
   overflow: hidden;
   font-size: 20px;
-  margin-top: 25px;
-  grid-column: 1/1;
+  margin-top: 105px;
+  min-width: 67px;
   @include display(flex, center, space-evenly);
   flex-direction: column;
   height: 80vh;
@@ -123,6 +120,239 @@ menu {
       }
     }
   }
+}
+
+.singlePage {
+  grid-column: 1/3;
+  grid-row: 1/3;
+  @include display(flex, flex-start, space-evenly);
+  flex-wrap: wrap;
+  padding-top: 150px;
+  .rec.rec-arrow {
+    display: none;
+  }
+  .imgSingleProduct {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+  .sliderSingleProducts {
+    position: relative;
+    min-width: 40%;
+    width: 350px;
+    height: 260px;
+    margin: 0px 0 0 0;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+  }
+  .Information {
+    @include display(flex, flex-start, space-between);
+    flex-direction: column;
+    width: 300px;
+    height: 77%;
+    min-width: 40%;
+    color: $textColor;
+    div {
+      @include display(flex, flex-start, flex-start);
+      width: 100%;
+      padding-bottom: 10px;
+      border-bottom: 1px solid $textColorTotal;
+      span {
+        color: $textColorTotal;
+      }
+      p {
+        margin-left: 40px;
+      }
+    }
+  }
+}
+
+.sortIcon {
+  display: none;
+}
+
+@media screen and (max-width: $breakpoint-singleProduct) {
+  .singlePage {
+    padding-top: 30px;
+    .Information {
+      height: 50%;
+    }
+  }
+  menu {
+    width: 100%;
+    grid-column: 1/3;
+    flex-direction: row;
+    height: 10vh;
+    bottom: 0px;
+    z-index: 5000000;
+    border-radius: 0px;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+  }
+  .login {
+    input {
+      width: 70vw !important;
+    }
+  }
+  .profile {
+    div {
+      width: 90% !important;
+    }
+  }
+  .sortIcon {
+    @include display(flex, flex-start, center);
+    display: flex;
+    width: 50px;
+    height: 50px;
+    color: $textColor;
+    font-size: 25px;
+    margin-right: 20px;
+  }
+  .filter {
+    padding-right: 0px !important;
+    select {
+      width: 100% !important;
+    }
+  }
+}
+
+.selectFilterMobile {
+  @include display(flex, flex, space-evenly);
+  flex-direction: column;
+  padding: 0px 20px 0px 20px;
+  position: absolute;
+  background: $navbarColor;
+  top: 70px;
+  width: 100%;
+  height: 22vh;
+}
+
+.signUp {
+  cursor: pointer;
+  font-size: 17px;
+  color: $textColor;
+  div {
+    img {
+      width: 30px;
+      height: 30px;
+      border-radius: 100%;
+      -webkit-border-radius: 100%;
+      -moz-border-radius: 100%;
+      -ms-border-radius: 100%;
+      -o-border-radius: 100%;
+    }
+  }
+}
+
+.login {
+  width: 100vw;
+  height: 100vh;
+  @include display(flex, flex-end, center);
+  form {
+    @include display(flex, center, space-evenly);
+    height: 88%;
+    flex-direction: column;
+    .btnSgn {
+      @include display(flex, center, center);
+      flex-direction: column;
+      width: 70%;
+      height: 20%;
+      .btn {
+        color: $textColor;
+        width: 100%;
+        background-color: transparent;
+        border: 2px solid #ccc;
+        font-size: 16px;
+        cursor: pointer;
+        padding: 5px;
+        border-radius: 10px;
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+      }
+      p {
+        color: $textColor;
+      }
+    }
+  }
+  input {
+    color: $textColor;
+    font-size: 20px;
+    width: 50vw;
+    background: transparent;
+    border-bottom: 2px solid $color;
+  }
+}
+
+.profile {
+  @include display(flex, center, center);
+  width: 100vw;
+  height: 100vh;
+  color: $textColor;
+  div {
+    @include display(flex, flex, space-around);
+    flex-direction: column;
+    width: 55%;
+    height: 75%;
+    .imgUser {
+      position: relative;
+      @include display(flex, center, center);
+      width: 100%;
+      .isAdmin {
+        position: absolute;
+        top: 60%;
+        left: 52%;
+        z-index: 10500400;
+        font-size: 30px;
+      }
+    }
+    .aboutUser {
+      width: 100%;
+    }
+    p {
+      border-bottom: 1px solid $color;
+    }
+  }
+  img {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    -webkit-border-radius: 100%;
+    -moz-border-radius: 100%;
+    -ms-border-radius: 100%;
+    -o-border-radius: 100%;
+  }
+  a {
+    color: $textColor;
+    border-bottom: 1px solid $textColor;
+  }
+}
+
+.logOut {
+  cursor: pointer;
+  color: $textColor;
+}
+.error {
+  color: $textColor;
+}
+
+.notLikeItem {
+  position: absolute;
+  @include display(flex, center, center);
+  width: 90%;
+  height: 70%;
+  font-size: 20px;
+  color: $textColor;
 }
 
 .load {
@@ -206,4 +436,8 @@ menu {
     -ms-transform: scale(1);
     -o-transform: scale(1);
   }
+}
+
+.iconFilter {
+  color: $textColor;
 }

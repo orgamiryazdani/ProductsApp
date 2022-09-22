@@ -5,13 +5,17 @@
 .products {
   display: grid;
   grid-template-columns: 5% 95%;
-  grid-template-rows: 80px auto;
   background: $bgColor;
   min-height: 100vh;
+  max-width: 1400px;
 }
 
 .search {
-  grid-column: 1/3;
+  position: fixed;
+  width: 100%;
+  height: 80px;
+  z-index: 2000000;
+  max-width: 1400px;
   grid-template-columns: repeat(auto-fill, minmax(20%, 50%));
   @include display(flex, center, center);
   flex-wrap: wrap;
@@ -36,14 +40,13 @@
     @include display(flex, center, flex-end);
     height: 100%;
     width: 50%;
-    padding-right: 15px;
     font-size: 23px;
     .theme {
       cursor: pointer;
     }
     .icons {
       @include display(flex, center, space-evenly);
-      width: 25%;
+      width: 200px;
       height: 100%;
       min-width: 100px;
       .likeIcon {
@@ -53,28 +56,75 @@
   }
 }
 
-.product {
+.product,
+.category {
   @include display(grid, center, center);
   grid-template-columns: repeat(auto-fill, minmax(300px, 400px));
   grid-template-rows: repeat(auto-fill, minmax(350px, 350px));
   grid-row-gap: 20px;
   grid-column-gap: 20px;
-  padding: 10px;
-  padding-top: 40px;
+  padding: 40px 10px 10px 10px;
   grid-column: 2/3;
   max-width: 1440px;
+  margin-top: 120px;
+  a {
+    width: 100%;
+    height: 100%;
+  }
 }
 
-.likeCarts {
-  height: auto;
-  min-height: 100vh;
-  background: $bgColor;
+.category {
+  grid-template-rows: repeat(auto-fill, minmax(300px, 300px));
+}
+
+@media screen and (max-width: $breakpoint-singleProduct) {
+  .product,
+  .category {
+    grid-column: 1/3;
+  }
+  .selectFilter {
+    display: none !important;
+  }
 }
 
 .notFund {
   @include display(flex, center, center);
-  width: 100%;
+  width: 100vw;
   height: 100%;
   color: $textColor;
   font-size: 40px;
+}
+
+.singleProducts {
+  width: 100vw;
+  grid-row: 1/3;
+  background: red;
+}
+
+.filter {
+  position: absolute;
+  top: 80px;
+  @include display(flex, center, flex-end);
+  width: 100%;
+  height: 12%;
+  z-index: 800000;
+  padding-right: 20px;
+  label {
+    color: $textColor;
+  }
+  .selectFilter {
+    width: 600px;
+    height: 100%;
+    @include display(flex, center, space-around);
+  }
+  select {
+    padding: 5px;
+    width: 150px;
+    height: 30px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+  }
 }
