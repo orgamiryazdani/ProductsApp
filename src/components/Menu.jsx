@@ -1,7 +1,7 @@
 import React from 'react';
 import { RiHome6Line } from "react-icons/ri";
 import { BiCategoryAlt } from "react-icons/bi";
-import { AiOutlineHeart } from "react-icons/ai";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { CgLogOut } from "react-icons/cg";
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
@@ -12,7 +12,7 @@ const Menu = () => {
     const { LikeProduct } = useSelector((state) => state.like);
     const logOut = () => {
         if (user) {
-            const confirmed = confirm("Do you want to log out ?");
+            const confirmed = confirm("آیا می خواهید از سیستم خارج شوید ؟");
             if (confirmed) {
                 localStorage.removeItem("userDataStorage");
                 localStorage.removeItem("user");
@@ -20,7 +20,7 @@ const Menu = () => {
                 dispatch(loginUser());
             }
         } else {
-            alert("You are not logged into your account");
+            alert("شما وارد حساب کاربری خود نشده اید");
         }
     }
     const dispatch = useDispatch();
@@ -29,13 +29,13 @@ const Menu = () => {
             <NavLink className={({ isActive }) =>
                 isActive ? "itemMenu" : ""
             } to="/">
-                <div> <RiHome6Line /></div>
+                 <RiHome6Line />
             </NavLink>
 
             <NavLink className={({ isActive }) =>
                 isActive ? "itemMenu" : ""
             } to="/category">
-                <div><BiCategoryAlt /></div>
+                <BiCategoryAlt />
             </NavLink>
 
             <NavLink className={({ isActive }) =>
@@ -43,7 +43,7 @@ const Menu = () => {
             } to="/like-card">
                 <div className='likeIconMenu'>
                     {LikeProduct.length > 0 ? <p>{LikeProduct.length}</p> : null}
-                    <AiOutlineHeart />
+                    <AiOutlineShoppingCart />
                 </div>
             </NavLink>
 

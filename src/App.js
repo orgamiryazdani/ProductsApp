@@ -2,7 +2,6 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 import NotFund from "./common/NotFund/NotFund";
-import ProductsCard from "./common/ProductsCard";
 import LikeCard from "./components/LikeCard";
 import Category from "./components/Category";
 import SingleProduct from "./components/SingleProduct";
@@ -12,9 +11,9 @@ import SignupForm from "./components/Signup";
 import { loginUser, setLoginUser } from "./common/ProductsData/UserSlice";
 import Profile from "./components/Profile";
 import { getAsyncCategories } from "./common/ProductsData/CategorySlice";
+import ProductPage from "./page/ProductPage";
 
 const App = () => {
-
   useEffect(() => {
     dispatch(getAsyncCategories("/categories"));
     const userData = JSON.parse(localStorage.getItem("user"));
@@ -28,7 +27,7 @@ const App = () => {
   return (
     <div className="products">
       <Routes>
-        <Route path="/" element={<ProductsCard />} />
+        <Route path="/" element={<ProductPage />} />
         <Route path="/like-card" element={<LikeCard />} />
         <Route path="/category" element={<Category />} />
         <Route path="/single-product/:id" element={<SingleProduct />} />

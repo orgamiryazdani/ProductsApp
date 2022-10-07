@@ -1,39 +1,16 @@
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import React from 'react';
-import { AiOutlineHeart } from "react-icons/ai";
+import { BsFillCartCheckFill } from "react-icons/bs";
 import { AiOutlineStar } from "react-icons/ai";
-import { AiFillHeart } from "react-icons/ai";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { checkInCart } from "../utils/checkInCart";
 import Carousel from 'react-elastic-carousel';
-import Loading from "../common/loading/Loading";
-import NotFund from "../common/NotFund/NotFund";
 import Layout from "../Layout/Layout";
-import { addItemToCart } from "../common/ProductsData/LikeSlice";
-import { getAsyncProducts } from "./ProductsData/ProductsSlice";
 import { NavLink } from "react-router-dom";
 
-const ProductsCard = () => {
+const ProductsCard = ({ products, addItem }) => {
 
-    useEffect(() => {
-        dispatch(getAsyncProducts(`/products`));
-    }, []);
-
-    const { products, loading, error } = useSelector((state) => state.products);
     const { LikeProduct } = useSelector((state) => state.like);
-    const dispatch = useDispatch();
-
-    const addItem = (product) => {
-        dispatch(addItemToCart(product));
-    }
-
-    if (loading) {
-        return <Loading />
-    }
-
-    if (error) {
-        return <NotFund error={error} />
-    }
 
     return (
         <Layout>
@@ -42,7 +19,7 @@ const ProductsCard = () => {
                     <div key={product.id} className="cardProduct" >
                         <div className="imageCartProduct">
                             <div className="like" onClick={() => addItem(product)}>
-                                {checkInCart(LikeProduct, product) ? <AiFillHeart /> : <AiOutlineHeart />}
+                                {checkInCart(LikeProduct, product) ? <BsFillCartCheckFill /> : <AiOutlineShoppingCart />}
                             </div>
                             <div className="star">
                                 <AiOutlineStar />
@@ -65,7 +42,7 @@ const ProductsCard = () => {
                                 </div>
                                 <div>
                                     <p>
-                                        $ {product.price} <span>total</span>
+                                        $ {product.price} <span>قیمت</span>
                                     </p>
                                 </div>
                             </div>

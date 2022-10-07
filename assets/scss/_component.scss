@@ -78,11 +78,11 @@ menu {
   flex-direction: column;
   height: 80vh;
   background-color: $navbarColor;
-  border-radius: 0 10px 10px 0;
-  -webkit-border-radius: 0 10px 10px 0;
-  -moz-border-radius: 0 10px 10px 0;
-  -ms-border-radius: 0 10px 10px 0;
-  -o-border-radius: 0 10px 10px 0;
+  border-radius: 10px 0 0 10px;
+  -webkit-border-radius: 10px 0 0 10px;
+  -moz-border-radius: 10px 0 0 10px;
+  -ms-border-radius: 10px 0 0 10px;
+  -o-border-radius: 10px 0 0 10px;
   .itemMenu {
     cursor: pointer;
     @include display(flex, center, center);
@@ -123,6 +123,7 @@ menu {
 }
 
 .singlePage {
+  direction: ltr;
   grid-column: 1/3;
   grid-row: 1/3;
   @include display(flex, flex-start, space-evenly);
@@ -160,7 +161,7 @@ menu {
     min-width: 40%;
     color: $textColor;
     div {
-      @include display(flex, flex-start, flex-start);
+      @include display(flex, flex-start, space-between);
       width: 100%;
       padding-bottom: 10px;
       border-bottom: 1px solid $textColorTotal;
@@ -168,7 +169,7 @@ menu {
         color: $textColorTotal;
       }
       p {
-        margin-left: 40px;
+        margin-left: 10px;
       }
     }
   }
@@ -217,6 +218,7 @@ menu {
     font-size: 25px;
     margin-right: 20px;
   }
+
   .filter {
     padding-right: 0px !important;
     select {
@@ -295,9 +297,10 @@ menu {
 }
 
 .profile {
+  margin-top: 50px;
   @include display(flex, center, center);
-  width: 100vw;
-  height: 100vh;
+  width: 98vw;
+  height: 92vh;
   color: $textColor;
   div {
     @include display(flex, flex, space-around);

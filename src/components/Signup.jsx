@@ -8,7 +8,6 @@ import { useQuery } from "../hooks/useQuery";
 import Layout from '../Layout/Layout';
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser, setLoginUser } from '../common/ProductsData/UserSlice';
-import NotFund from '../common/NotFund/NotFund';
 import { useState } from 'react';
 import axios from 'axios';
 import Loading from '../common/loading/Loading';
@@ -23,19 +22,19 @@ const initialValues = {
 
 const validationSchema = Yup.object({
     name: Yup.string()
-        .required("Name is required")
-        .min(3, "Name length is not valid"),
+        .required("نام کاربری الزامی است")
+        .min(3, "طول نام کاربری معتبر نیست"),
     email: Yup.string()
-        .email("Invalid email format")
-        .required("Email is required"),
+        .email("قالب ایمیل نامعتبر است")
+        .required("ایمیل مورد نیاز است"),
     phoneNumber: Yup.string()
-        .required("Phone Number is required")
-        .matches(/^[0-9]{11}$/, "Invalid Phone Number")
+        .required("شماره تلفن الزامی است")
+        .matches(/^[0-9]{11}$/, "شماره تلفن نامعتبر")
         .nullable(),
-    password: Yup.string().required("Password is required"),
+    password: Yup.string().required("رمز عبور مورد نیاز است"),
     passwordConfirm: Yup.string()
-        .required("Pasword Confirmation is Required")
-        .oneOf([Yup.ref("password"), null], "Passwords must match"),
+        .required("تایید رمز عبور الزامی است")
+        .oneOf([Yup.ref("password"), null], "رمزهای عبور باید مطابقت داشته باشند"),
 });
 
 const SignupForm = () => {
@@ -92,28 +91,27 @@ const SignupForm = () => {
     }
 
     return (
-        <Layout>
             <div className='login'>
                 <form onSubmit={formik.handleSubmit}>
-                    <Input formik={formik} name="name" placeholder="name" />
-                    <Input formik={formik} name="email" type="email" placeholder="email" />
+                    <Input formik={formik} name="name" placeholder="نام کاربری" />
+                    <Input formik={formik} name="email" type="email" placeholder="ایمیل" />
                     <Input
                         formik={formik}
                         name="phoneNumber"
                         type="tel"
-                        placeholder="phone number"
+                        placeholder="شماره تلفن"
                     />
                     <Input
                         formik={formik}
                         name="password"
                         type="password"
-                        placeholder="password"
+                        placeholder="کلمه عبور"
                     />
                     <Input
                         formik={formik}
                         name="passwordConfirm"
                         type="password"
-                        placeholder="password confirm"
+                        placeholder="تکرار کلمه عبور"
                     />
                     <div className="btnSgn">
                         <button
@@ -122,20 +120,19 @@ const SignupForm = () => {
                             className="btn"
                             style={!formik.isValid ? { color: "#555", border: "1px solid #555" } : null}
                         >
-                            Signup
+                            ثبت نام
                         </button>
                         <br />
-                        <p>PLEASE TURN ON VPN !</p>
+                        <p>لطفا vpn خود را روشن کنید !</p>
                         {error && (
                             <span style={{ color: "red", marginTop: "10px" }}>{error}</span>
                         )}
                         <NavLink to={`/login?redirect=${redirect}`}>
-                            <p style={{ marginTop: "15px" }}>Already login?</p>
+                            <p style={{ marginTop: "15px" }}>قبلا وارد شدید ؟</p>
                         </NavLink>
                     </div>
                 </form>
             </div>
-        </Layout >
     );
 };
 

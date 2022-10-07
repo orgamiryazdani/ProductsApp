@@ -22,8 +22,8 @@ const Search = () => {
         dispatch(setValueSearch(inputRef.current.value));
         {
             pathname === "/category" ? dispatch(searchCategory(inputRef.current.value)) :
-            pathname === "/like-card" ? dispatch(searchItemLike(inputRef.current.value)) :
-            dispatch(searchItem(inputRef.current.value));
+                pathname === "/like-card" ? dispatch(searchItemLike(inputRef.current.value)) :
+                    dispatch(searchItem(inputRef.current.value));
         }
     };
 
@@ -50,19 +50,19 @@ const Search = () => {
         <div className="search">
             <div className='searchBar'>
                 <FiSearch />
-                <input className="" placeholder="Search in name ..." type="search" ref={inputRef} onChange={changeHandler} />
+                <input className="searchInput" placeholder="جستجو بر اساس عنوان یا دسته بندی ..." type="search" ref={inputRef} onChange={changeHandler} />
             </div>
 
             <div className='navFeature'>
                 <div className='icons'>
+                    <NavLink className="signUp" to={user === true ? "/profile" : "/login"}>
+                        <div>
+                            {user === true ? <img src={image} alt="" /> : <p>ورود</p>}
+                        </div>
+                    </NavLink>
                     <div className='theme' onClick={handleModeChange}>
                         {theme ? <GiBarbedSun /> : <BsFillMoonStarsFill />}
                     </div>
-                    <NavLink className="signUp" to={user === true ? "/profile" : "/login"}>
-                        <div>
-                            {user === true ? <img src={image} alt="" /> : <p>Log in</p>}
-                        </div>
-                    </NavLink>
                 </div>
             </div>
         </div>

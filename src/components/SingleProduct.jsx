@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import React from 'react';
-import { AiOutlineHeart } from "react-icons/ai";
+import { BsFillCartCheckFill } from "react-icons/bs";
 import { AiOutlineStar } from "react-icons/ai";
-import { AiFillHeart } from "react-icons/ai";
+import { AiOutlineShoppingCart } from "react-icons/ai";
 import { checkInCart } from "../utils/checkInCart";
 import Carousel from 'react-elastic-carousel';
 import Loading from "../common/loading/Loading";
@@ -53,7 +53,7 @@ const SingleProduct = () => {
                     <div key={product.id} className="singlePage">
                         <div className="sliderSingleProducts">
                             <div className="like" onClick={() => addItem(product)}>
-                                {checkInCart(LikeProduct, product) ? <AiFillHeart /> : <AiOutlineHeart />}
+                                {checkInCart(LikeProduct, product) ? <BsFillCartCheckFill /> : <AiOutlineShoppingCart />}
                             </div>
                             <div className="star">
                                 <AiOutlineStar />
@@ -65,20 +65,20 @@ const SingleProduct = () => {
                         </div>
                         <div className="Information">
                             <div>
-                                <span>category </span>
                                 <p>{product.category.name}</p>
+                                <span>دسته بندی </span>
                             </div>
                             <div>
-                                <span>name </span>
                                 <p>{product.title}</p>
+                                <span>عنوان </span>
                             </div>
                             <div>
-                                <span>total </span>
                                 <p>$ {product.price}</p>
+                                <span>قیمت </span>
                             </div>
                             <div>
-                                <span>description </span>
                                 <p>{product.description}</p>
+                                <span>مشخصات </span>
                             </div>
                         </div>
                     </div>

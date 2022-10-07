@@ -20,8 +20,8 @@ const initialValues = {
 const validationSchema = Yup.object({
   email: Yup.string()
     .email("Invalid email format")
-    .required("Email is required"),
-  password: Yup.string().required("Password is required"),
+    .required("ایمیل مورد نیاز است"),
+  password: Yup.string().required("رمز عبور مورد نیاز است"),
 });
 
 const LoginForm = () => {
@@ -80,15 +80,14 @@ const LoginForm = () => {
   }
 
   return (
-    <Layout>
       <div className="login">
         <form onSubmit={formik.handleSubmit}>
-          <Input formik={formik} placeholder="name" name="email" type="email" />
+          <Input formik={formik} placeholder="نام کاربری" name="email" type="email" />
           <Input
             formik={formik}
             name="password"
             type="password"
-            placeholder="password"
+            placeholder="کلمه عبور"
           />
           <div className="btnSgn">
 
@@ -98,20 +97,19 @@ const LoginForm = () => {
               className="btn"
               style={!formik.isValid ? { color: "#555", border: "1px solid #555" } : null}
             >
-              Login
+              ورود
             </button>
             <br />
-            <p>PLEASE TURN ON VPN !</p>
+            <p>لطفا vpn خود را روشن کنید !</p>
             {error && (
               <span style={{ color: "red", marginTop: "10px" }}>{error}</span>
             )}
             <NavLink to={`/signup?redirect=${redirect}`}>
-              <p style={{ marginTop: "15px" }}>Not signup yet ?</p>
+              <p style={{ marginTop: "15px" }}>هنوز ثبت نام نکرده اید ؟</p>
             </NavLink>
           </div>
         </form>
       </div>
-    </Layout>
   );
 };
 

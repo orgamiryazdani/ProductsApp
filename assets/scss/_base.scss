@@ -3,8 +3,13 @@
   margin: 0;
   box-sizing: border-box;
   outline: none;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Dirooz";
   border: none;
+}
+
+@font-face {
+  font-family: "Dirooz"; /*Can be any text*/
+  src: local("Dirooz"), url("../../src/fonts/Dirooz.woff") format("woff");
 }
 
 body {
@@ -122,9 +127,9 @@ body.dark-mode {
     background: $bgColorDark;
   }
   .selectFilterMobile {
-  background: $navbarColorDark;
+    background: $navbarColorDark;
   }
-  .iconFilter{
+  .iconFilter {
     color: $textColorDark;
   }
   label {

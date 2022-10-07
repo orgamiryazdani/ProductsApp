@@ -17,11 +17,11 @@ const Profile = () => {
                         <MdAdminPanelSettings className='isAdmin' style={dataUser.isAdmin === true ? { color: "#a4a402" } : { color: "#7e7e7e" }} />
                     </div>
                     <div className='aboutUser'>
-                        <p>name : {dataUser.name}</p>
-                        <p>email : {dataUser.email}</p>
-                        <p>phone : {dataUser.phoneNumber}</p>
+                        <p>نام کاربری : {dataUser.name}</p>
+                        <p>ایمیل : {dataUser.email}</p>
+                        <p>شماره تلفن : {dataUser.phoneNumber}</p>
                     </div>
-                </div> : <NavLink to="/login"><p>PLEASE LOGIN !</p></NavLink>}
+                </div> : <NavLink to="/login"><p>لطفا وارد شوید !</p></NavLink>}
             </div>
         </Layout>
     );

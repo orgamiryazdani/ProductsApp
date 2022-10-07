@@ -6,8 +6,7 @@ const NotFund = ({error}) => {
     return (
         <Layout>
             <div className='notFund'>
-                {error ? error : "not fund"}
-
+                {error ? error : "صفحه مورد نظر پیدا نشد"}
             </div>
         </Layout>
     );
