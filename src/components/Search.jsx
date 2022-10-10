@@ -50,7 +50,7 @@ const Search = () => {
         <div className="search">
             <div className='searchBar'>
                 <FiSearch />
-                <input className="searchInput" placeholder="جستجو بر اساس عنوان یا دسته بندی ..." type="search" ref={inputRef} onChange={changeHandler} />
+                <input className="searchInput" placeholder="جستجو ..." type="search" ref={inputRef} onChange={changeHandler} />
             </div>
 
             <div className='navFeature'>

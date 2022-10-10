@@ -135,6 +135,7 @@ body.dark-mode label {
 .cardProduct .imageCartProduct .Carousel {
   width: 100%;
   height: 100%;
+  min-height: 305px;
   padding-top: 10px;
 }
 .cardProduct .imageCartProduct .Carousel .rec.rec-arrow {
@@ -217,7 +218,6 @@ body.dark-mode label {
 
 menu {
   position: fixed;
-  overflow: hidden;
   font-size: 20px;
   margin-top: 105px;
   min-width: 67px;
@@ -252,14 +252,19 @@ menu a {
   color: #000;
 }
 menu a .likeIconMenu {
+  width: 40px;
+  height: 40px;
   position: relative;
   display: flex;
   text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 menu a .likeIconMenu p {
   position: absolute;
-  top: -7px;
-  left: 14px;
+  top: 5px;
+  left: 24px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -509,6 +514,7 @@ menu a .likeIconMenu p {
 }
 
 .logOut {
+  position: relative;
   cursor: pointer;
   color: #000;
 }
@@ -611,6 +617,42 @@ menu a .likeIconMenu p {
 }
 .iconFilter {
   color: #000;
+}
+
+.nameItemMenu {
+  color: #000;
+  width: 85px;
+  height: 23px;
+  font-size: 9.5px;
+  position: absolute;
+  z-index: 99999;
+  right: -11px;
+  bottom: 45px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #ccc;
+  opacity: 0;
+  display: none;
+  border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+}
+
+.showItemMenu:hover .nameItemMenu {
+  opacity: 100;
+  display: flex;
+}
+
+.fixStyleMenuOptions {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .products {

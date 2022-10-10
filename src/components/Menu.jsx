@@ -27,28 +27,33 @@ const Menu = () => {
     return (
         <menu>
             <NavLink className={({ isActive }) =>
-                isActive ? "itemMenu" : ""
+                isActive ? "showItemMenu itemMenu fixStyleMenuOptions" : "showItemMenu fixStyleMenuOptions"
             } to="/">
-                 <RiHome6Line />
+                <RiHome6Line />
+                <div className='nameItemMenu'>محصولات</div>
             </NavLink>
 
             <NavLink className={({ isActive }) =>
-                isActive ? "itemMenu" : ""
+                isActive ? "showItemMenu itemMenu fixStyleMenuOptions" : "showItemMenu fixStyleMenuOptions"
             } to="/category">
                 <BiCategoryAlt />
+                <div className='nameItemMenu'>دسته بندی</div>
             </NavLink>
 
             <NavLink className={({ isActive }) =>
-                isActive ? "itemMenu" : ""
+                isActive ? "showItemMenu itemMenu fixStyleMenuOptions" : "showItemMenu fixStyleMenuOptions"
             } to="/like-card">
                 <div className='likeIconMenu'>
                     {LikeProduct.length > 0 ? <p>{LikeProduct.length}</p> : null}
                     <AiOutlineShoppingCart />
+                    <div className='nameItemMenu'>سبد خرید</div>
                 </div>
             </NavLink>
 
-
-            <div className='logOut' onClick={logOut}><CgLogOut /></div>
+            <div className='logOut showItemMenu fixStyleMenuOptions' onClick={logOut}>
+                <CgLogOut />
+                <div className='nameItemMenu'>خروج از حساب کاربری</div>
+            </div>
 
         </menu>
     );
