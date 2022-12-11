@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import CategorySlice from "./CategorySlice";
 import LikeSlice from "./LikeSlice";
 import ProductsSlice from "./ProductsSlice";
-import sortSlice from "./test";
+import sortSlice from "./Sort";
 import UserSlice from "./UserSlice";
 
 
@@ -12,6 +12,6 @@ export const store = configureStore({
         like: LikeSlice,
         categories: CategorySlice,
         user: UserSlice,
-        sort:sortSlice
+        sort: sortSlice
     },
 });
